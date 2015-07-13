@@ -7,7 +7,7 @@ Consolidated Avatar Template Package for Meteor
 ANNOUNCEMENT
 ------------
 
-I've forked @bengott's Avatar package to take over maintenance until he has time to come back to it. -Sacha
+This package has been forked from @bengott's original Avatar package since it no longer seems to be maintained.
 
 BREAKING CHANGES
 ----------------
@@ -54,7 +54,7 @@ The package exports a global `Avatar` object which has a property named `options
     - "default image" (the default option, which will show either the image specified by defaultImageUrl, the package's default image, or a Gravatar default image).
       OR
     - "initials" (show the user's initials)
-  - `defaultImageUrl`: This will replace the included package default image URL ("packages/bengott_avatar/default.png"). It can be a relative path (e.g. "images/defaultAvatar.png").
+  - `defaultImageUrl`: This will replace the included package default image URL ("packages/avatar/default.png"). It can be a relative path (e.g. "images/defaultAvatar.png").
   - `gravatarDefault`: Gravatar default option to use (overrides defaultImageUrl option and included package default image URL). Options are available [here](https://secure.gravatar.com/site/implement/images/#default-image).
   - `emailHashProperty`: This property on the user object will be used for retrieving gravatars (useful when user emails are not published).
   - `customImageProperty`: If you're storing images URLs in a property on the user object, you can specify it here.
@@ -121,25 +121,25 @@ Avatar.options = {
 
 Test App
 --------
-The app I use to test Avatar is available here:  
+The app used to test Avatar is available here:  
 https://github.com/bengott/avatar-tester
 
 How the package chooses an avatar
 ---------------------------------
 Given a user object or userId string, Avatar will retrieve the user's image with the following priority:
-  1. Twitter
-  2. Facebook
-  3. Google
-  4. GitHub
-  5. Instagram
-  6. Linkedin
-  7. Gravatar, which will try to return an avatar matching the user's email address/hash. If it can't find one, then:
+  1. The user object's custom image URL (stored in the property defined by `Avatar.options.customImageProperty`)
+  2. Twitter
+  3. Facebook
+  4. Google
+  5. GitHub
+  6. Instagram
+  7. Linkedin
+  8. Gravatar, which will try to return an avatar matching the user's email address/hash. If it can't find one, then:
     - If `Avatar.options.fallbackType` is "initials", Gravatar returns a 404 (Not Found) response.
     - Else,
       - If `Avatar.options.gravatarDefault` is valid, Gravatar will return a default image (e.g. an identicon).
       - If `Avatar.options.gravatarDefault` is invalid or undefined, Gravatar will return either the image referenced by `Avatar.options.defaultImageUrl` or the included default image.
-  8. If no image can be retrieved, the user's initials will be shown.
-  9. More to come...
+  9. If no image can be retrieved, the user's initials will be shown.
 
 **Required Fields/Properties on the User Object**
 
@@ -174,11 +174,11 @@ Fields used to form initials (if needed):
 ```
 
 **Linked Services/Accounts:**
-By default, the Meteor accounts system creates a separate user account for each service you login with. In order to merge those accounts together, you'd need to use a package like [accounts-meld](https://atmospherejs.com/splendido/accounts-meld) or [link-accounts](https://atmospherejs.com/bozhao/link-accounts). In the future, the plan is to add UI to allow the user to select which avatar they want to use ([Issue #10](https://github.com/bengott/meteor-avatar/issues/10)) and/or upload their own image ([Issue #9](https://github.com/bengott/meteor-avatar/issues/9)).
+By default, the Meteor accounts system creates a separate user account for each service you login with. In order to merge those accounts together, you'd need to use a package like [accounts-meld](https://atmospherejs.com/splendido/accounts-meld) or [link-accounts](https://atmospherejs.com/bozhao/link-accounts). In the future, the plan is to add UI to allow the user to select which avatar they want to use and/or upload their own image.
 
 Credits
 -------
 - [Sacha Greif](https://github.com/SachaG), for [suggesting the idea on crater.io](http://crater.io/posts/BfMsgzs5AzEdp6Byu)
 - [Shai Alon](https://github.com/shaialon), for [contributing the Gravatar functionality to Telescope](https://github.com/TelescopeJS/Telescope/pull/436) that [I later modified](https://github.com/TelescopeJS/Telescope/pull/438)
 - [Jérémie Parker](https://github.com/p-j), for providing the [gravatar package](https://github.com/p-j/meteor-gravatar)
-- [Everyone who has contributed](https://github.com/bengott/meteor-avatar/graphs/contributors) to this project. :)
+- [Everyone who has contributed](https://github.com/meteor-utilities/avatar/graphs/contributors) to this project. :)
