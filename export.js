@@ -48,7 +48,7 @@ Avatar = {
     }
   },
 
-  // Sets the Avatar options. You must use this setter function rather that assigning directly to
+  // Sets the Avatar options. You must use this setter function rather than assigning directly to
   // Avatar.options, otherwise the stylesheet won't be generated.
 
   setOptions: function(options) {

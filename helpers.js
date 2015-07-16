@@ -52,7 +52,7 @@ getEmailOrHash = function (user) {
   return emailOrHash;
 };
 
-// Creates the dynaically generated CSS file
+// Creates the dynamically generated CSS file
 //
 // CSS is dynamically generated so that we can have both a custom class prefix and also allow for custom sizes
 createCSS = function () {
@@ -130,8 +130,8 @@ createCSS = function () {
   }
 
   // In order to allow for custom sizes and a custom prefix we need to be able to create a style sheet
-  // on the fly. To do this cleanly we inject the styles directly into the HTML code before it's sent
-  // to the client using the meteor-hacks:inject package
+  // on the fly. To do this cleanly we use the meteor-hacks:inject package to inject the styles directly
+  // into the HTML code before it's sent to the client.
 
   Inject.rawHead('avatar-styles', '<style>' + css + '</style>');
 }
