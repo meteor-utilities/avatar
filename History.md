@@ -1,3 +1,10 @@
+### 0.7.15
+
+- **IMPORTANT:** There is now an `Avatar.setOptions()` method which must be used to override the default options (rather than just assigning to `Avatar.options` directly).
+- Provided an option to override the default Avatar sizes and to create new ones.
+- The CSS is now generated on the server based on the current options, so it's no longer necessary to provide your own CSS if you've customised the CSS prefix using the option that was introduced in version 0.7.13.
+
+
 ### 0.7.14
 
 - Updated repo URL.
