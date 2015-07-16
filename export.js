@@ -1,8 +1,9 @@
 // Avatar object to be exported
 Avatar = {
 
-  // If defined (e.g. from a startup config file in your app), these options
-  // override default functionality
+  // Default functionality. You can override these options by calling
+  // Avater.setOptions (do not set Avatar.options directly)
+
   options: {
 
     // Determines the type of fallback to use when no image can be found via
@@ -37,7 +38,22 @@ Avatar = {
     // This property is used to prefix the CSS classes of the DOM elements.
     // If no value is set, then the default CSS class assigned to all DOM elements are prefixed with 'avatar' as default.
     // If a value is set to, 'foo' for example, the resulting CSS classes are prefixed with 'foo'.
-    cssClassPrefix: ''
+    cssClassPrefix: '',
+
+    // This property defines the various image sizes available
+    imageSizes: {
+      'large': 80,
+      'small': 30,
+      'extra-small': 20
+    }
+  },
+
+  // Sets the Avatar options. You must use this setter function rather than assigning directly to
+  // Avatar.options, otherwise the stylesheet won't be generated.
+
+  setOptions: function(options) {
+    Avatar.options = _.extend(Avatar.options, options);
+    createCSS();
   },
 
   // Returns the cssClassPrefix property from options
@@ -132,3 +148,8 @@ Avatar = {
     return url;
   }
 };
+
+// Call setOptions to generate the default CSS. This will be replaced if the user calls setOptions in their own code
+
+Avatar.setOptions({});
+

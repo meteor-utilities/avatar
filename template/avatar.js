@@ -5,18 +5,8 @@ Template.avatar.helpers({
   },
 
   size: function () {
-    var valid = ['large', 'small', 'extra-small'];
-    return _.contains(valid, this.size) ? Avatar.getCssClassPrefix() +'-' + this.size : '';
-  },
-
-  dimensions: function () {
-    var value;
-    if      (this.size === 'large')       value = 80;
-    else if (this.size === 'small')       value = 30;
-    else if (this.size === 'extra-small') value = 20;
-    else                                  value = 50;
-
-    return { width: value, height: value };
+    // Defaults are 'large', 'small', 'extra-small', but user can add new ones
+    return Avatar.options.imageSizes[this.size] ? Avatar.getCssClassPrefix() + '-' + this.size : '';
   },
 
   shape: function () {
