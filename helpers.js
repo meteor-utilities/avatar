@@ -110,8 +110,8 @@ createCSS = function () {
     a + p + '-initials { \n\
       display: block; \n\
       background-size: 100% 100%; \n\
-      background-color: #aaa; \n\
-      color: #fff; \n\
+      background-color: ' + Avatar.options.backgroundColor + '; \n\
+      color: ' + Avatar.options.textColor +'; \n\
       font-size: 25px; \n\
       line-height: 50px; \n\
       font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif; \n\

@@ -53,7 +53,14 @@ _.extend(Avatar, {
       'large': 80,
       'small': 30,
       'extra-small': 20
-    }
+    },
+
+    // Default background color when displaying the initials
+    backgroundColor: "#aaa",
+
+    // Default text color when displaying the initials
+    textColor: "#fff"
+
   },
 
   // Sets the Avatar options. You must use this setter function rather than assigning directly to
