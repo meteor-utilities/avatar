@@ -19,13 +19,13 @@ Avatar = {
     // ('packages/avatar/default.png'). It can be a relative path
     // (relative to website's base URL, e.g. 'images/defaultAvatar.png').
     defaultImageUrl: '',
-    
+
     // This property name will be used to fetch an avatar url from the user's profile
     // (e.g. 'avatar'). If this property is set and a property of that name exists
     // on the user's profile (e.g. user.profile.avatar) that property will be used
     // as the avatar url.
     customImageProperty: '',
-    
+
     // Gravatar default option to use (overrides default image URL)
     // Options are available at:
     // https://secure.gravatar.com/site/implement/images/#default-image
@@ -146,10 +146,14 @@ Avatar = {
     }
 
     return url;
+},
+
+  // Gravatar.hash() proxy method
+  hash: function (email) {
+    return Gravatar.hash(email);
   }
 };
 
 // Call setOptions to generate the default CSS. This will be replaced if the user calls setOptions in their own code
 
 Avatar.setOptions({});
-
