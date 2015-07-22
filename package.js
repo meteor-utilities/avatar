@@ -10,15 +10,25 @@ Package.onUse(function(api) {
   api.use(['templating', 'reactive-var'], ['client']);
   api.use(['underscore', 'jparker:gravatar@0.3.1'], ['client', 'server']);
   api.use(['meteorhacks:inject-initial@1.0.2'], ['server']);
+
+  // To add support for React we can need to weak link to it so that it's not uncessarily included
+  // However we have to force the inclusion of the jsx compiler otherwise our jsx files aren't included.
+  // Since JSX is only used when compiling and it isn't delivered to clients this isn't an issue, even for
+  // those who aren't using React in their project.
+
+  api.use('jsx');
+  api.use(['react', 'jsx'], { weak: true });
+
   api.addFiles(
     [
-      'template/avatar.html',
-      'template/avatar.js',
+      'blaze/avatar.html',
+      'blaze/avatar.js',
     ],
     ['client']
   );
   api.addFiles(
     [
+      'react/avatar.jsx',
       'utils.js',
       'helpers.js',
       'export.js',
@@ -27,4 +37,5 @@ Package.onUse(function(api) {
     ['client', 'server']
   );
   api.export('Avatar');
+  api.export('AvatarC');
 });

@@ -5,16 +5,16 @@ Template.avatar.helpers({
   },
 
   size: function () {
-    // Defaults are 'large', 'small', 'extra-small', but user can add new ones
-    return Avatar.options.imageSizes[this.size] ? Avatar.getCssClassPrefix() + '-' + this.size : '';
+    return sizeClass(this);
   },
 
   shape: function () {
-    var valid = ['rounded', 'circle'];
-    return _.contains(valid, this.shape) ? Avatar.getCssClassPrefix() + '-' + this.shape : '';
+    return shapeClass(this)
   },
 
-  class: function () { return this.class; },
+  class: function () {
+    return customClasses(this);
+  },
 
   imageUrl: function () {
     var user = this.user ? this.user : Meteor.users.findOne(this.userId);
@@ -37,7 +37,7 @@ Template.avatar.helpers({
 
   initialsText: function () {
     var user = this.user ? this.user : Meteor.users.findOne(this.userId);
-    return this.initials || Avatar.getInitials(user);
+    return initialsText(user, this);
   }
 
 });

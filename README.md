@@ -7,7 +7,7 @@ Consolidated Avatar Template Package for Meteor
 ANNOUNCEMENT
 ------------
 
-This package has been forked from @bengott's original Avatar package since it no longer seems to be maintained.
+This package has been forked from @bengott's original Avatar package since it is longer maintained. It's been added to the *utilities* collection so that it can henceforth be maintained by other community members.
 
 BREAKING CHANGES
 ----------------
@@ -30,10 +30,19 @@ Usage
 In an HTML file:
 ```handlebars
 {{> avatar (user=<user> || userId=<userId>)
-           (size="large" || "small" || "extra-small")
+           (size="large" || "small" || "extra-small" || <user-defined size>)
            (shape="rounded" || "circle")
            (class="some custom classes")
            (initials="<initials>") (bgColor="<color>") (txtColor="<color>") }}
+```
+
+In a React component:
+```jsx
+<Avatar (user=<user> || userId=<userId>)
+        (size="large" || "small" || "extra-small" || <user-defined size>)
+        (shape="rounded" || "circle")
+        (class="some custom classes")
+        (initials="<initials>") (bgColor="<color>") (txtColor="<color>") />
 ```
 
 That may look like a lot of options, but they are all optional. Most of the time, your HTML will look more like this:
@@ -134,11 +143,6 @@ Avatar.setOptions({
   }  
 });
 ```
-
-Test App
---------
-The app used to test Avatar is available here:  
-https://github.com/bengott/avatar-tester
 
 How the package chooses an avatar
 ---------------------------------

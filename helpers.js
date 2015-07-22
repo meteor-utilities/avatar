@@ -52,6 +52,28 @@ getEmailOrHash = function (user) {
   return emailOrHash;
 };
 
+// Returns the size class to use for an avatar
+sizeClass = function(context) {
+  // Defaults are 'large', 'small', 'extra-small', but user can add new ones
+  return Avatar.options.imageSizes[context.size] ? Avatar.getCssClassPrefix() + '-' + context.size : '';
+}
+
+// Returns the shape class for an avatar
+shapeClass = function (context) {
+  var valid = ['rounded', 'circle'];
+  return _.contains(valid, context.shape) ? Avatar.getCssClassPrefix() + '-' + context.shape : '';
+}
+
+// Returns the custom class(es) for an avatar
+customClasses = function (context) {
+  return context.class ? context.class : '';
+}
+
+// Returns the initials text for an avatar
+initialsText = function(user, context) {
+  return this.initials || Avatar.getInitials(user);
+}
+
 // Creates the dynamically generated CSS file
 //
 // CSS is dynamically generated so that we can have both a custom class prefix and also allow for custom sizes
