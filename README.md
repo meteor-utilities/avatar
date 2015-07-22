@@ -123,6 +123,7 @@ Avatar.setOptions({
   emailHashProperty: "email_hash"
 });
 ```
+  ***Note that you can use `Avatar.hash("address@email.com");` to generate a Gravatar email hash.***
  
 - You may override the default avatar sizes, or create new ones, by overriding the `imageSizes` option:
 ```javascript
