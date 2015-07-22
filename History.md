@@ -1,3 +1,9 @@
+### 0.8.0
+
+- Added support for rendering with React (if it's being used by the project)
+- Exported a `hash` function to for creating Gravatar-compatible hashes to store in the user object
+- Added options to provide the default background/text colors for avatars that display initials
+
 ### 0.7.15
 
 - **IMPORTANT:** There is now an `Avatar.setOptions()` method which must be used to override the default options (rather than just assigning to `Avatar.options` directly).

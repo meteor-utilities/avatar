@@ -1,7 +1,7 @@
 Package.describe({
   name: "utilities:avatar",
   summary: "Consolidated user avatar template (twitter, facebook, gravatar, etc.)",
-  version: "0.7.15",
+  version: "0.8.0",
   git: "https://github.com/meteor-utilities/avatar"
 });
 
@@ -16,8 +16,8 @@ Package.onUse(function(api) {
   // Since JSX is only used when compiling and it isn't delivered to clients this isn't an issue, even for
   // those who aren't using React in their project.
 
-  api.use('jsx');
-  api.use(['react', 'jsx'], { weak: true });
+  api.use('jsx@0.1.3');
+  api.use('react@0.1.3', { weak: true });
 
   api.addFiles(
     [
