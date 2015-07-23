@@ -37,5 +37,4 @@ Package.onUse(function(api) {
     ['client', 'server']
   );
   api.export('Avatar');
-  api.export('AvatarC');
 });
