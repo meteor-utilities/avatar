@@ -1,7 +1,7 @@
 Package.describe({
   name: "utilities:avatar",
   summary: "Consolidated user avatar template (twitter, facebook, gravatar, etc.)",
-  version: "0.8.1",
+  version: "0.8.2",
   git: "https://github.com/meteor-utilities/avatar"
 });
 
@@ -18,7 +18,7 @@ Package.onUse(function(api) {
 
   api.use('jsx@0.1.4');
   api.use('react@0.1.4', { weak: true });
-  api.use('react-meteor-data');
+  api.use('react-meteor-data@0.1.2');
 
   api.addFiles(
     [
