@@ -1,7 +1,7 @@
 Package.describe({
   name: "utilities:avatar",
   summary: "Consolidated user avatar template (twitter, facebook, gravatar, etc.)",
-  version: "0.8.2",
+  version: "0.8.3",
   git: "https://github.com/meteor-utilities/avatar"
 });
 
