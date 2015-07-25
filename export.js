@@ -58,6 +58,12 @@ _.extend(Avatar, {
     // Default background color when displaying the initials
     backgroundColor: "#aaa",
 
+    // This property enables background colors for initials as a function of the user's name
+    useBackgroundColorScheme: true,
+
+    // Provide a function here to perform custom mapping between user's name and background color of initials
+    backgroundColorScheme: undefined,
+
     // Default text color when displaying the initials
     textColor: "#fff"
 
@@ -67,6 +73,13 @@ _.extend(Avatar, {
   // Avatar.options, otherwise the stylesheet won't be generated.
 
   setOptions: function(options) {
+
+    // the backgroundColorScheme, if set, should be a function
+    if ( options.backgroundColorScheme && !_.isFunction(options.backgroundColorScheme)) {
+      console.log("Warning: The backgroundColorScheme option in the Avatar package should be a function");
+      options.backgroundColorScheme = undefined;
+    }
+
     Avatar.options = _.extend(Avatar.options, options);
     createCSS();
   },
@@ -74,6 +87,19 @@ _.extend(Avatar, {
   // Returns the cssClassPrefix property from options
   getCssClassPrefix: function () {
     return (Avatar.options.cssClassPrefix)? Avatar.options.cssClassPrefix: 'avatar';
+  },
+
+  getBackgroundColor: function (user) {
+    if (Avatar.options.backgroundColorScheme)
+      return Avatar.options.backgroundColorScheme(user);
+    else {
+      var colors = [
+        "#DD360A", "#F1CA2F", "#54845E", "#C4D167", "#67903C"
+      ];
+      var nameString = user && user.profile && user.profile.firstname || user && user.profile.name && user.profile.name || "0";
+      var index = parseInt(nameString, 36) % colors.length;
+      return colors[index];
+    }
   },
 
   // Get the initials of the user
