@@ -59,7 +59,7 @@ _.extend(Avatar, {
     backgroundColor: "#aaa",
 
     // This property enables background colors for initials as a function of the user's name
-    useBackgroundColorScheme: true,
+    useBackgroundColorScheme: false,
 
     // Provide a function here to perform custom mapping between user's name and background color of initials
     backgroundColorScheme: undefined,

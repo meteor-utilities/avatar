@@ -76,7 +76,7 @@ The package exports a global `Avatar` object which has a property named `options
   - `imageSizes`: This property defines the avatar sizes that are available to your project
   - `backgroundColor`: The background color for initials avatars (color name or hex value string). The default is gray (`"#AAA"`).
   - `useBackgroundColorScheme`: Seting this option to `true` enables background colors for initials as a function of the user's name. This options overrides the `backgroundColor` and by default is set to `false`.
-  - `backgroundColorScheme`: Assing your own scheme for background colors for initials by passing a function here. The color scheme function should take only one argument, the `user` instance.
+  - `backgroundColorScheme`: Assing your own scheme for background colors for initials by passing a function here. The color scheme function should take only one argument, the `user` instance and return a CSS compatible color code e.g. "#123abc".
   - `textColor`: The text color for initials avatars (color name or hex value string). The default is white (`"#FFF"`).
 
 Example usage:
