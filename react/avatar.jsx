@@ -64,7 +64,10 @@ if (Package.react) {
          if (this.state.hideAvatar) imgStyles['display'] = 'none'
  
          var initialsStyles = {};
+
          if (this.props.bgColor) initialsStyles['backgroundColor'] = this.props.bgColor;
+         else if (Avatar.options.backgroundColorScheme && user) initialsStyles['backgroundColor'] = Avatar.getBackgroundColor(user);
+
          if (this.props.txtColor) initialsStyles['color'] = this.props.txtColor;
   
          return (
