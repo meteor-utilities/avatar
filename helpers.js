@@ -42,7 +42,8 @@ getEmailOrHash = function (user) {
     emailOrHash = getDescendantProp(user, Avatar.options.emailHashProperty);
   }
   else if (user && user.emails) {
-    emailOrHash = user.emails[0].address; // TODO: try all emails
+    var emails = _.pluck(user.emails, 'address');
+    emailOrHash = emails[0] || '00000000000000000000000000000000';
   }
   else {
     // If all else fails, return 32 zeros (trash hash, hehe) so that Gravatar
@@ -89,12 +90,12 @@ createCSS = function () {
   var p = '.' + Avatar.getCssClassPrefix();
   var a = p + ' ';
 
-  var css = 
+  var css =
     p + ' { \n\
       height: 50px; \n\
       width: 50px; \n\
       position: relative; \n\
-    } \n' + 
+    } \n' +
     a + p + '-image, \n' +
     a + p + '-initials { \n\
       height: 100%; \n\
@@ -102,11 +103,11 @@ createCSS = function () {
       position: absolute; \n\
       top: 0px; \n\
       left: 0px; \n\
-    } \n' + 
+    } \n' +
     a + p + '-image { \n\
       z-index: 10; \n\
       background-color: #fff; \n\
-    } \n' + 
+    } \n' +
     a + p + '-initials { \n\
       display: block; \n\
       background-size: 100% 100%; \n\
@@ -117,7 +118,7 @@ createCSS = function () {
       font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif; \n\
       text-align: center; \n\
       z-index: 1; \n\
-    } \n' + 
+    } \n' +
     p + '-rounded ' + p + '-image, \n' +
     p + '-rounded ' + p + '-initials { \n\
       border-radius: 5px; \n\
@@ -125,10 +126,10 @@ createCSS = function () {
     p + '-circle ' + p + '-image, \n' +
     p + '-circle ' + p + '-initials { \n\
       border-radius: 50%; \n\
-    } \n' + 
+    } \n' +
     p + '-hide-image ' + p + '-image { \n\
       display: none; \n\
-    } \n' + 
+    } \n' +
     p + '-hide-initials ' + p + '-initials { \n\
       display: none; \n\
     } \n\
@@ -137,12 +138,12 @@ createCSS = function () {
   // CSS for each of the defined sizes
 
   for (sizeName in Avatar.options.imageSizes) {
-  
+
     var size = Avatar.options.imageSizes[sizeName];
-    
+
     css = css + p + '-' + sizeName + ' {' +
-      'width: ' + size + 'px; ' + 
-      'min-width: ' + size + 'px; ' + 
+      'width: ' + size + 'px; ' +
+      'min-width: ' + size + 'px; ' +
       'height: ' + size + 'px;' +
     '}\n' +
     p + '-' + sizeName + ' ' + p + '-initials {' +
