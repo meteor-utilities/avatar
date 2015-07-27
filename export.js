@@ -69,13 +69,6 @@ _.extend(Avatar, {
   // Avatar.options, otherwise the stylesheet won't be generated.
 
   setOptions: function(options) {
-
-    // the backgroundColorScheme, if set, should be a function
-    if ( options.backgroundColorScheme && !_.isFunction(options.backgroundColorScheme)) {
-      console.log("Warning: The backgroundColorScheme option in the Avatar package should be a function");
-      options.backgroundColorScheme = undefined;
-    }
-
     Avatar.options = _.extend(Avatar.options, options);
     createCSS();
   },
