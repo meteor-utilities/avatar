@@ -29,9 +29,19 @@ Template.avatar.helpers({
   },
 
   initialsCss: function () {
+    var user = this.user ? this.user : Meteor.users.findOne(this.userId);
     var css = '';
-    if (this.bgColor)  css += 'background-color: ' + this.bgColor + ';';
-    if (this.txtColor) css += 'color: ' + this.txtColor + ';';
+
+    var backgroundColorProperty = 'background-color: ';
+    if (this.bgColor) backgroundColorProperty += this.bgColor;
+    else backgroundColorProperty += Avatar.getBackgroundColor(user);
+    css += backgroundColorProperty + ';';
+
+    var textColorProperty = 'color: ';
+    if (this.txtColor) textColorProperty += this.txtColor;
+    else textColorProperty += Avatar.getTextColor(user);
+    css += textColorProperty + ';';
+
     return css;
   },
 

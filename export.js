@@ -55,10 +55,12 @@ _.extend(Avatar, {
       'extra-small': 20
     },
 
-    // Default background color when displaying the initials
+    // Default background color when displaying the initials.
+    // Can also be set to a function to map an user object to a background color.
     backgroundColor: "#aaa",
 
-    // Default text color when displaying the initials
+    // Default text color when displaying the initials.
+    // Can also be set to a function to map an user object to a text color.
     textColor: "#fff"
 
   },
@@ -74,6 +76,22 @@ _.extend(Avatar, {
   // Returns the cssClassPrefix property from options
   getCssClassPrefix: function () {
     return (Avatar.options.cssClassPrefix)? Avatar.options.cssClassPrefix: 'avatar';
+  },
+
+  // Returns a background color for initials
+  getBackgroundColor: function (user) {
+    if (_.isString(Avatar.options.backgroundColor))
+      return Avatar.options.backgroundColor;
+    else if (_.isFunction(Avatar.options.backgroundColor))
+      return Avatar.options.backgroundColor(user);
+  },
+
+  // Returns a text color for initials
+  getTextColor: function (user) {
+    if (_.isString(Avatar.options.textColor))
+      return Avatar.options.textColor;
+    else if (_.isFunction(Avatar.options.textColor))
+      return Avatar.options.textColor(user);
   },
 
   // Get the initials of the user

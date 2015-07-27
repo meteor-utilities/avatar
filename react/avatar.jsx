@@ -64,9 +64,13 @@ if (Package.react) {
          if (this.state.hideAvatar) imgStyles['display'] = 'none'
  
          var initialsStyles = {};
+
          if (this.props.bgColor) initialsStyles['backgroundColor'] = this.props.bgColor;
+         else initialsStyles['backgroundColor'] = Avatar.getBackgroundColor(user);
+
          if (this.props.txtColor) initialsStyles['color'] = this.props.txtColor;
-  
+         else initialsStyles['color'] = Avatar.getTextColor(user);
+
          return (
             <div className={classes}>
                <img className={prefix + '-image'} src={this.data.url} style={imgStyles} />
