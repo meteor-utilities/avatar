@@ -66,10 +66,11 @@ if (Package.react) {
          var initialsStyles = {};
 
          if (this.props.bgColor) initialsStyles['backgroundColor'] = this.props.bgColor;
-         else if (Avatar.options.backgroundColorScheme && user) initialsStyles['backgroundColor'] = Avatar.getBackgroundColor(user);
+         else initialsStyles['backgroundColor'] = Avatar.getBackgroundColor(user);
 
          if (this.props.txtColor) initialsStyles['color'] = this.props.txtColor;
-  
+         else initialsStyles['color'] = Avatar.getTextColor(user);
+
          return (
             <div className={classes}>
                <img className={prefix + '-image'} src={this.data.url} style={imgStyles} />

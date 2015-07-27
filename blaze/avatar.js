@@ -34,10 +34,14 @@ Template.avatar.helpers({
 
     var backgroundColorProperty = 'background-color: ';
     if (this.bgColor) backgroundColorProperty += this.bgColor;
-    else if (Avatar.options.backgroundColorScheme && user) backgroundColorProperty += Avatar.getBackgroundColor(user);
+    else backgroundColorProperty += Avatar.getBackgroundColor(user);
     css += backgroundColorProperty + ';';
 
-    if (this.txtColor) css += 'color: ' + this.txtColor + ';';
+    var textColorProperty = 'color: ';
+    if (this.txtColor) textColorProperty += this.txtColor;
+    else textColorProperty += Avatar.getTextColor(user);
+    css += textColorProperty + ';';
+
     return css;
   },
 
