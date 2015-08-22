@@ -2,10 +2,10 @@
 //
 // Note that if React is being used then Avatar will have already been defined as the React compononent (by avatar.jsx)
 // so that users can use <Avatar ...> in their .jsx files.
-// 
+//
 // We therefore need to avoid overriding it if it already exists.
 
-Avatar = Avatar || {}
+Avatar = Avatar || {};
 
 _.extend(Avatar, {
 
@@ -166,7 +166,7 @@ _.extend(Avatar, {
         url = getDescendantProp(user, Avatar.options.customImageProperty);
       }
       else if (svc === 'none') {
-        defaultUrl = Avatar.options.defaultImageUrl || '/packages/avatar/default.png';
+        defaultUrl = Avatar.options.defaultImageUrl || '/packages/utilities_avatar/default.png';
         // If it's a relative path (no '//' anywhere), complete the URL
         if (defaultUrl.indexOf('//') === -1) {
           // Strip starting slash if it exists
