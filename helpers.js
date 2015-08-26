@@ -72,7 +72,7 @@ customClasses = function (context) {
 
 // Returns the initials text for an avatar
 initialsText = function(user, context) {
-  return this.initials || Avatar.getInitials(user);
+  return context.initials || Avatar.getInitials(user);
 }
 
 // Creates the dynamically generated CSS file
