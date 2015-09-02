@@ -1,3 +1,9 @@
+### 0.9.0
+
+- React support has had to be removed for the time being. Please see the README for more details.
+- Added the ability to specify a function that returns the backgroud/foreground colors for a given avatar
+- The correct path is now used the default Avatar
+
 ### 0.8.0
 
 - Added support for rendering with React (if it's being used by the project)
@@ -34,7 +40,7 @@
 
 - Adding `customImageProperty` option for storing avatars on a custom user property.
 - Refactored `getServices`.
-- Started using `getDescendantProp` instead of assuming properties are stored on the `user.profile` object. 
+- Started using `getDescendantProp` instead of assuming properties are stored on the `user.profile` object.
 - Added roadmap.
-- Changed package name to `utilities:avatar`. 
-- Changed logo to the only “Avatar” that matters. 
+- Changed package name to `utilities:avatar`.
+- Changed logo to the only “Avatar” that matters.
