@@ -2,7 +2,7 @@
 // We only do somethere here if React is being used by the project
 
 if (Package.react) {
-   
+
    // We create a React component that will also be extended (in export.js) to export the Avatar API.
 
    Avatar = React.createClass({
@@ -16,7 +16,7 @@ if (Package.react) {
          var user = (this.props.user) ? this.props.user : Meteor.users.findOne(this.props.userId);
          var initials = initialsText(user, this.props);
          var url = Avatar.getUrl(user);
-         
+
          // If the URL has changed then we need to update the state with the new URL, and also (re)display the IMG tag
 
          if (this.data.url !== url.trim()) {
@@ -26,7 +26,7 @@ if (Package.react) {
                this.setState({hideAvatar: true})
             }
             else {
-               
+
                // We try to load the new URL into another Image object.
                // If that fails then we'll hide the actual IMG tag by updating the state
 
@@ -52,7 +52,7 @@ if (Package.react) {
       getInitialState() {
          return {
             hideAvatar: false,
-         }      
+         }
       },
 
       render() {
@@ -62,7 +62,7 @@ if (Package.react) {
 
          var imgStyles = {}
          if (this.state.hideAvatar) imgStyles['display'] = 'none'
- 
+
          var initialsStyles = {};
 
          if (this.props.bgColor) initialsStyles['backgroundColor'] = this.props.bgColor;

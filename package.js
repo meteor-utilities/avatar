@@ -16,9 +16,9 @@ Package.onUse(function(api) {
   // Since JSX is only used when compiling and it isn't delivered to clients this isn't an issue, even for
   // those who aren't using React in their project.
 
-  api.use('jsx@0.1.4');
-  api.use('react@0.1.4', { weak: true });
-  api.use('react-meteor-data@0.1.2');
+  api.use('jsx@0.1.5');
+  api.use('react@0.1.7', { weak: true });
+  api.use('react-meteor-data@0.1.5');
 
   api.addFiles(
     [
