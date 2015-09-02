@@ -18,7 +18,6 @@ In version 0.7.14 and earlier the Avatar options were overridden by assigning th
 
 The template parameters were overhauled in version 0.5.0. The `Avatar.options` object changed quite a bit in version 0.6.0 too. And make sure you note the `defaultType`/`fallbackType` changes in version 0.7.0. Basically, things are still in a state of flux (pre-1.0.0), so check for breaking changes and read the rest of the README carefully when you update the package.
 
-
 Installation
 ------------
 In your Meteor project directory, run:
@@ -36,15 +35,6 @@ In an HTML file:
            (shape="rounded" || "circle")
            (class="some custom classes")
            (initials="<initials>") (bgColor="<color>") (txtColor="<color>") }}
-```
-
-In a React component:
-```jsx
-<Avatar (user=<user> || userId=<userId>)
-        (size="large" || "small" || "extra-small" || <user-defined size>)
-        (shape="rounded" || "circle")
-        (class="some custom classes")
-        (initials="<initials>") (bgColor="<color>") (txtColor="<color>") />
 ```
 
 That may look like a lot of options, but they are all optional. Most of the time, your HTML will look more like this:
