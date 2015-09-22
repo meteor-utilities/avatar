@@ -1,3 +1,7 @@
+### 0.9.1
+
+- Meteor 1.2 compatibility upgrade.
+
 ### 0.9.0
 
 - React support has had to be removed for the time being. Please see the README for more details.
