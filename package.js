@@ -1,7 +1,7 @@
 Package.describe({
   name: "utilities:avatar",
   summary: "Consolidated user avatar template (twitter, facebook, gravatar, etc.)",
-  version: "0.8.3",
+  version: "0.9.0",
   git: "https://github.com/meteor-utilities/avatar"
 });
 
@@ -32,10 +32,17 @@ Package.onUse(function(api) {
       'react/avatar.jsx',
       'utils.js',
       'helpers.js',
-      'export.js',
-      'default.png'
+      'export.js'
     ],
     ['client', 'server']
   );
+
+  api.addAssets(
+    [
+    'default.png'
+    ],
+    ['client', 'server']
+  );
+
   api.export('Avatar');
 });
