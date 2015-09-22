@@ -12,10 +12,11 @@ This package has been forked from @bengott's original Avatar package since it is
 BREAKING CHANGES
 ----------------
 
+As of version 0.9.0 the React support that was added to version 0.8.0 has been removed. The latest updates to Meteor and the React package have made the build unstable, and despite my best efforts I haven't been able to create a single solution that works with both apps that use and don't use React. Days have been lost trying to solve the issues, and this has stopped me from publishing other updates. This situation will be revisited at a later stage, or else a separate React fork may be considered. In the meantime you'll need to use the Blaze template within your React code.
+
 In version 0.7.14 and earlier the Avatar options were overridden by assigning them directly to `Avatar.options`. You should no longer do this. Instead, you must call `Avatar.setOptions()` and pass the options that you wish to override.
 
 The template parameters were overhauled in version 0.5.0. The `Avatar.options` object changed quite a bit in version 0.6.0 too. And make sure you note the `defaultType`/`fallbackType` changes in version 0.7.0. Basically, things are still in a state of flux (pre-1.0.0), so check for breaking changes and read the rest of the README carefully when you update the package.
-
 
 Installation
 ------------
@@ -36,15 +37,6 @@ In an HTML file:
            (initials="<initials>") (bgColor="<color>") (txtColor="<color>") }}
 ```
 
-In a React component:
-```jsx
-<Avatar (user=<user> || userId=<userId>)
-        (size="large" || "small" || "extra-small" || <user-defined size>)
-        (shape="rounded" || "circle")
-        (class="some custom classes")
-        (initials="<initials>") (bgColor="<color>") (txtColor="<color>") />
-```
-
 That may look like a lot of options, but they are all optional. Most of the time, your HTML will look more like this:
 ```handlebars
 {{> avatar user=this shape="circle"}}
@@ -57,7 +49,7 @@ Optional template parameters:
   - `class`: Any custom CSS classes you'd like to define on the avatar container. The string is passed straight through to the `class` attribute on the `div` container element.
   - `initials`: Specify the initials to show for the initials avatar. The package automatically tries to determine the user's initials from profile data, but if defined, this param will override that.
   - `bgColor` and `txtColor`: Override the default colors for the initials avatar (color name or hex value string).
-  
+
 Global Configuration Options
 ----------------------------
 The package exports a global `Avatar` object which has a property named `options` (also an object). The default options provided can be overridden by calling `Avatar.setOptions()` and passing in the options that you wish to override.
@@ -107,7 +99,7 @@ Avatar.setOptions({
 });
 ```
   ***Note that gravatarDefault overrides defaultImageUrl and the included package default image.***
- 
+
 - Set a value to the `cssClassPrefix` to avoid conflicts in CSS class names. Setting the property value like this:
 ```javascript
 Avatar.setOptions({
@@ -136,7 +128,7 @@ Avatar.setOptions({
 });
 ```
   ***Note that you can use `Avatar.hash("address@email.com");` to generate a Gravatar email hash.***
- 
+
 - You may override the default avatar sizes, or create new ones, by overriding the `imageSizes` option:
 ```javascript
 Avatar.setOptions({

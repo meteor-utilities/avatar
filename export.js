@@ -1,13 +1,6 @@
 // Avatar object to be exported
-//
-// Note that if React is being used then Avatar will have already been defined as the React compononent (by avatar.jsx)
-// so that users can use <Avatar ...> in their .jsx files.
-// 
-// We therefore need to avoid overriding it if it already exists.
 
-Avatar = Avatar || {}
-
-_.extend(Avatar, {
+Avatar = {
 
   // Default functionality. You can override these options by calling
   // Avater.setOptions (do not set Avatar.options directly)
@@ -185,7 +178,7 @@ _.extend(Avatar, {
   hash: function (email) {
     return Gravatar.hash(email);
   }
-});
+}
 
 // Call setOptions to generate the default CSS. This will be replaced if the user calls setOptions in their own code
 

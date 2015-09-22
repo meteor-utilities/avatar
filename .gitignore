@@ -1,2 +1,5 @@
 .build*
 .idea
+
+# OSX temporary files
+**/.DS_Store
