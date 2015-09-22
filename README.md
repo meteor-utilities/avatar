@@ -50,6 +50,11 @@ Optional template parameters:
   - `initials`: Specify the initials to show for the initials avatar. The package automatically tries to determine the user's initials from profile data, but if defined, this param will override that.
   - `bgColor` and `txtColor`: Override the default colors for the initials avatar (color name or hex value string).
 
+Publishing & Subscribing
+------------------------
+
+This package will help you display an avatar based on the data available in the user object, but it won't actually make that data available for you. In other words, you still need to publish the relevant user profile fields, and subscribe to that publication yourself somewhere in your app's codebase. 
+
 Global Configuration Options
 ----------------------------
 The package exports a global `Avatar` object which has a property named `options` (also an object). The default options provided can be overridden by calling `Avatar.setOptions()` and passing in the options that you wish to override.
