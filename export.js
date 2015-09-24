@@ -141,7 +141,7 @@ Avatar = {
       }
       else if (svc === 'facebook') {
         // use larger image (~200x200)
-        url = 'https://graph.facebook.com/' + user.services.facebook.id + '/picture?type=large';
+        url = 'https://graph.facebook.com/' + user.services.facebook.id + '/picture/?type=large';
       }
       else if (svc === 'google') {
         url = user.services.google.picture;
