@@ -54,7 +54,12 @@ Avatar = {
 
     // Default text color when displaying the initials.
     // Can also be set to a function to map an user object to a text color.
-    textColor: "#fff"
+    textColor: "#fff",
+
+    // Default CSS included in the head of your application.
+    // Setting this to false, or 0, will exclude the default CSS and leave the 
+    // avatar unstyled by the package.
+    includeDefaultCSS: 1
 
   },
 
@@ -63,7 +68,9 @@ Avatar = {
 
   setOptions: function(options) {
     Avatar.options = _.extend(Avatar.options, options);
-    createCSS();
+    if (Avatar.options.includeDefaultCSS) {
+      createCSS();
+    }
   },
 
   // Returns the cssClassPrefix property from options
