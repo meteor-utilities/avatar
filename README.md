@@ -65,7 +65,7 @@ The package exports a global `Avatar` object which has a property named `options
     - "default image" (the default option, which will show either the image specified by defaultImageUrl, the package's default image, or a Gravatar default image).
       OR
     - "initials" (show the user's initials)
-  - `defaultImageUrl`: This will replace the included package default image URL ("packages/avatar/default.png"). It can be a relative path (e.g. "images/defaultAvatar.png").
+  - `defaultImageUrl`: This will replace the included package default image URL ("packages/packages_avatar/default.png"). It can be a relative path (e.g. "images/defaultAvatar.png").
   - `gravatarDefault`: Gravatar default option to use (overrides defaultImageUrl option and included package default image URL). Options are available [here](https://secure.gravatar.com/site/implement/images/#default-image).
   - `emailHashProperty`: This property on the user object will be used for retrieving gravatars (useful when user emails are not published).
   - `customImageProperty`:  If you're storing images URLs in a property on the user object, you can specify it here. You can set it to a function that returns the image URL (`this` is the user object).
