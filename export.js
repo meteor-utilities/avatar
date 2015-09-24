@@ -156,7 +156,7 @@ Avatar = {
         url = user.services.linkedin.pictureUrl;
       }
       else if (svc === "custom") {
-        url = getDescendantProp(user, Avatar.options.customImageProperty);
+        url = getCustomUrl(user);
       }
       else if (svc === 'none') {
         defaultUrl = Avatar.options.defaultImageUrl || '/packages/avatar/default.png';

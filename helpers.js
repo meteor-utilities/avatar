@@ -2,14 +2,31 @@
 // Priority: Twitter > Facebook > Google > GitHub > Instagram > Linkedin
 getService = function (user) {
   var services = user && user.services || {};
-  var customProp = user && Avatar.options.customImageProperty;
-  if (customProp && getDescendantProp(user, customProp)) { return 'custom'; }
+  if (getCustomUrl(user)) { return 'custom'; }
   var service = _.find([['twitter', 'profile_image_url_https'], ['facebook', 'id'], ['google', 'picture'], ['github', 'username'], ['instagram', 'profile_picture'], ['linkedin', 'pictureUrl']], function(s) { return !!services[s[0]] && s[1].length && !!services[s[0]][s[1]]; });
   if(!service)
     return 'none';
   else
     return service[0];
 };
+
+getCustomUrl = function (user) {
+  var computeUrl = function(prop) {
+    if (typeof prop === 'function') {
+      prop = prop.call(user);
+    }
+    if (prop && typeof prop === 'string') {
+      return prop;
+    }
+  }
+
+  var customProp = user && Avatar.options.customImageProperty;
+  if (typeof customProp === 'function') {
+    return computeUrl(customProp);
+  } else if (customProp) {
+    return computeUrl(getDescendantProp(user, customProp));
+  }
+}
 
 getGravatarUrl = function (user, defaultUrl) {
   var gravatarDefault;
