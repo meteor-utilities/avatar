@@ -55,6 +55,15 @@ Publishing & Subscribing
 
 This package will help you display an avatar based on the data available in the user object, but it won't actually make that data available for you. In other words, you still need to publish the relevant user profile fields, and subscribe to that publication yourself somewhere in your app's codebase.
 
+Generated CSS
+-------------
+
+The CSS required by this package is generated based on the options that you configure (see below) and then pushed into the `head` of your HTML at the point that the application is served to the client. This approach gives us great flexibility and allows us to provide features that would not otherwise be possible (such as custom avatar sizes).
+
+However, since the CSS isn't generated when you build the project, you won't have any styling for Cordova apps (until they talk to the server). In this case you'll need to provide your own CSS for the avatars.
+
+If you don't wish the CSS to be pushed to the client at all then you may set `generateCSS` to false in the global options.
+
 Global Configuration Options
 ----------------------------
 The package exports a global `Avatar` object which has a property named `options` (also an object). The default options provided can be overridden by calling `Avatar.setOptions()` and passing in the options that you wish to override.
@@ -73,7 +82,7 @@ The package exports a global `Avatar` object which has a property named `options
   - `imageSizes`: This property defines the avatar sizes that are available to your project
   - `backgroundColor`: The background color for initials avatars (color name or hex value string or a function). The default is gray (`"#AAA"`). Assign your own background color scheme by passing a function that take only one argument, the `user` instance and return a CSS compatible color code e.g. "#123abc".
   - `textColor`: The text color for initials avatars (color name or hex value string or a function). The default is white (`"#FFF"`). Assign your own text color scheme by passing a function that take only one argument, the `user` instance and return a CSS compatible color code e.g. "#123abc".
-
+  - `generateCSS`: When true the CSS required to style the Avatars based on the above settings is generated and pushed to the client when the application is loaded.
 
 Example usage:
 - To show initials when no avatar image can be found via linked services:
@@ -228,7 +237,7 @@ Fields used to form initials (if needed):
 ```
 
 **Linked Services/Accounts:**
-By default, the Meteor accounts system creates a separate user account for each service you login with. In order to merge those accounts together, you'd need to use a package like [accounts-meld](https://atmospherejs.com/splendido/accounts-meld) or [link-accounts](https://atmospherejs.com/bozhao/link-accounts). In the future, the plan is to add UI to allow the user to select which avatar they want to use and/or upload their own image.
+By default, the Meteor accounts system creates a separate user account for each service you login with. In order to merge those accounts together, you'd need to use a package like [accounts-meld](https://atmospherejs.com/splendido/accounts-meld) or [link-accounts](https://atmospherejs.com/bozhao/link-accounts).
 
 Credits
 -------
