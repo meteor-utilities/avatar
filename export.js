@@ -17,7 +17,7 @@ Avatar = {
     fallbackType: '',
 
     // This will replace the included default avatar image's URL
-    // ('packages/avatar/default.png'). It can be a relative path
+    // ('packages/utilities_avatar/default.png'). It can be a relative path
     // (relative to website's base URL, e.g. 'images/defaultAvatar.png').
     defaultImageUrl: '',
 
@@ -159,7 +159,7 @@ Avatar = {
         url = getCustomUrl(user);
       }
       else if (svc === 'none') {
-        defaultUrl = Avatar.options.defaultImageUrl || '/packages/avatar/default.png';
+        defaultUrl = Avatar.options.defaultImageUrl || '/packages/utilities_avatar/default.png';
         // If it's a relative path (no '//' anywhere), complete the URL
         if (defaultUrl.indexOf('//') === -1) {
           // Strip starting slash if it exists
