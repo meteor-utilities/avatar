@@ -1,10 +1,15 @@
+### 0.9.2
+
+- Added option to NOT push the generated CSS into the head
+- Use the right URL for the default avatar
+
 ### 0.9.1
 
-- Meteor 1.2 compatibility upgrade.
+- Meteor 1.2 compatibility upgrade
 
 ### 0.9.0
 
-- React support has had to be removed for the time being. Please see the README for more details.
+- React support has had to be removed for the time being. Please see the README for more details
 - Added the ability to specify a function that returns the backgroud/foreground colors for a given avatar
 - The correct path is now used the default Avatar
 
