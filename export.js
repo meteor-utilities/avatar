@@ -133,7 +133,11 @@ Avatar = {
   },
 
   // Get the url of the user's avatar
+  // XXX: Avatar.getUrl is a reactive function only when no user argument is specified.
   getUrl: function (user) {
+
+    // Default to the currently logged in user, unless otherwise specified.
+    if (!user) user = Meteor.user()
 
     var url = '';
     var defaultUrl, svc;
