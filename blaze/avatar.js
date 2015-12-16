@@ -17,8 +17,9 @@ Template.avatar.helpers({
   },
 
   imageUrl: function () {
-    var user = this.user ? this.user : Meteor.users.findOne(this.userId);
-    var url = Avatar.getUrl(user);
+    var user = this.user ? this.user :
+        this.userId ? Meteor.users.findOne(this.userId) : null;
+    var url = Avatar.getUrl(user); // reactive
     if (url && url.trim() !== '' && Template.instance().firstNode) {
       var img = Template.instance().find('img');
       if (img.src !== url.trim()) {
