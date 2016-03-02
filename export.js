@@ -56,7 +56,7 @@ Avatar = {
     // Can also be set to a function to map an user object to a text color.
     textColor: "#fff",
 
-    // Generate the required CSS and includ it in the head of your application.
+    // Generate the required CSS and include it in the head of your application.
     // Setting this to false will exclude the generated CSS and leave the
     // avatar unstyled by the package.
     generateCSS: true
@@ -67,8 +67,6 @@ Avatar = {
 
   setOptions: function(options) {
     Avatar.options = _.extend(Avatar.options, options);
-    if (Avatar.options.generateCSS)
-      createCSS();
   },
 
   // Returns the cssClassPrefix property from options
@@ -189,6 +187,11 @@ Avatar = {
   }
 }
 
-// Call setOptions to generate the default CSS. This will be replaced if the user calls setOptions in their own code
+// Call createCSS to generate the default CSS depend on the option
+Meteor.startup(function () {
+  if (Avatar.options.generateCSS)
+    createCSS();
+});
 
+// This will be replaced if the user calls setOptions in their own code
 Avatar.setOptions({});
