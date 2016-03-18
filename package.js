@@ -9,7 +9,7 @@ Package.onUse(function(api) {
   api.versionsFrom(['METEOR@0.9.4.1', 'METEOR@1.1.0.1']);
   api.use(['templating', 'reactive-var'], ['client']);
   api.use(['underscore', 'jparker:gravatar@0.3.1'], ['client', 'server']);
-  api.use(['meteorhacks:inject-initial@1.0.2'], ['server']);
+  api.use(['meteorhacks:inject-initial@1.0.4-rc.0'], ['server']);
 
   // IMPORTANT:
   //
